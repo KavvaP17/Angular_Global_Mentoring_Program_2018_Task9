@@ -1,0 +1,43 @@
+.title-panel{
+  min-width: 30%;
+}
+.course-panel-icons{
+  width: 30px;
+  height: 30px;
+  color: #3F51B5;
+}
+.course-panel-text{
+  line-height: 30px;
+  padding: 0 10px;
+  color: #777777;
+}
+.course-description{
+  width: 100%;
+  height: auto;
+  resize: none;
+  border: none;
+  font-size: 16px;
+  background-color: inherit;
+}
+mat-expansion-panel{
+  background-color: #F9F9F9;
+}
+mat-expansion-panel-header{
+  background-color: white;
+}
+.course-panel-icon-edit, .course-panel-icon-delete{
+  width: 35px;
+  height: 35px;
+}
+.course-panel-btn{
+  margin-right: 10px;
+}
+.top-rated{
+  color: #FFD700;
+}
+.green-border{
+  border: 2px solid green;
+}
+.blue-border{
+  border: 2px solid blue;
+}
