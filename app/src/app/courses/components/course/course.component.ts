@@ -13,10 +13,13 @@ import { Course } from '../../models/course.model';
 export class CourseComponent implements OnInit {
   @Input() course: Course;
   @Output() deleteCourse = new EventEmitter<number>();
+  public randomUrl: String;
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+    const random = Math.ceil(Math.random() * 100);
+    this.randomUrl = `https://loremflickr.com/300/200?random=${random}`;
   }
 
   public delete(event) {

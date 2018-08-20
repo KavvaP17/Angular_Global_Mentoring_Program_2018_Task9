@@ -16,7 +16,7 @@ export class PaginationComponent implements OnInit, AfterViewInit, OnDestroy {
 
    @ViewChild(MatPaginator) paginator: MatPaginator;
 
-   public pageSize: Number = 5;
+   public pageSize;
    public pageSizeOptions: Array<Number> = [5, 10, 15];
 
    // MatPaginator Output
@@ -28,10 +28,13 @@ export class PaginationComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.paginationService.init(this.paginator);
+    this.pageSize = this.paginationService.getPageSize();
   }
 
   ngAfterViewInit() {
     this.paginatorEventSub = this.paginator.page.subscribe(() => {
+      this.paginationService.setPageSize(this.pageEvent.pageSize);
+      this.pageSize = this.paginationService.getPageSize();
       this.getPaginationData.emit(this.pageEvent);
     });
   }

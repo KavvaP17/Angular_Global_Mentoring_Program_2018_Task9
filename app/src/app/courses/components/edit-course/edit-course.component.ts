@@ -5,6 +5,7 @@ import { FormControl } from '@angular/forms';
 import { Course } from '../../models/course.model';
 import { Subscription } from 'rxjs';
 import { LoadingService } from '../../../core/services/loading/loading.service';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-edit-course',
@@ -34,6 +35,7 @@ export class EditCourseComponent implements OnInit, OnDestroy {
       this.loadingService.setIsLoadingValue(true);
       this.id = +params.id;
       this.getCourseByIdSub = this.courseService.getCourseById(this.id)
+        .pipe( delay(200) )
         .subscribe((course: Course) => {
           if (course) {
             this.courseTitle = course.title;
@@ -56,11 +58,11 @@ export class EditCourseComponent implements OnInit, OnDestroy {
   }
 
   save() {
-    this.loadingService.setIsLoadingValue(true);
+    // this.loadingService.setIsLoadingValue(true);
     this.updateCourseSub = this.courseService.updateCourse(this.id, this.courseTitle, +this.courseDate.value,
       this.courseDuration, this.courseDescription, this.topRated).subscribe(() => {
         this.router.navigate(['courses']);
-        this.loadingService.setIsLoadingValue(false);
+        // this.loadingService.setIsLoadingValue(false);
     });
   }
 

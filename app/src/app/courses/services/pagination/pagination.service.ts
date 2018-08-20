@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material';
 export class PaginationService {
 
   private pagination: MatPaginator;
+  private pageSize = 5;
 
   constructor() { }
 
@@ -20,5 +21,13 @@ export class PaginationService {
 
   previousPage() {
     this.pagination.previousPage();
+  }
+
+  getPageSize() {
+    return this.pageSize;
+  }
+
+  setPageSize(value: number) {
+    this.pageSize = value;
   }
 }
